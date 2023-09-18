@@ -1,0 +1,38 @@
+version: 2
+
+sources:
+    - name: External_table_source
+      database: raw
+      schema: jaffle_shop
+      tables:
+          - name: customers
+            columns:
+            - name: id
+              tests:
+              - unique
+              - warn_if_null_with_insert
+          - name: orders
+            columns:
+            - name: id
+              tests:
+              #- unique
+              - warn_if_null_with_insert                
+          
+          
+          
+models:
+  - name: stg_customers_using_external
+    columns:
+      - name: customer_id
+        tests:
+          #- unique
+          - warn_if_null_with_insert
+
+  - name: stg_orders_using_external
+    columns:
+      - name: order_id
+        tests:
+          #- unique
+          - warn_if_null_with_insert        
+         
+                           
