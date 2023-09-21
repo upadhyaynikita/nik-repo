@@ -14,7 +14,8 @@
         current_timestamp(),
         'BSNS_ENTTY_CODE_ABC',
         '{{ file_name }}',
-        value,
+        '10',
+        --value, (taking 10 in place of value as value is a col in model that idk)
         current_timestamp()
         from {{model}}
         where ({{column_name}}  is NULL)
